@@ -3,6 +3,9 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 const methodOverride = require('method-override');
 const session = require('express-session');
+const flash = require('connect-flash');
+
+
 //Initializations
 const app = express();
 require('./database');
@@ -22,12 +25,18 @@ app.set('view engine', '.hbs');
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 app.use(session({
-    secret:'mySecretApp',
+    secret: 'mySecretApp',
     resave: true,
     saveUninitialized: true
 }));
+app.use(flash());
 
 //Global variables
+app.use((req,res,next)=>{
+    res.locals.success_msg=req.flash('success_msg');
+    res.locals.error_msg=req.flash('error_msg');
+    next();
+});
 
 //Routes
 app.use(require('./routes/index'));
@@ -35,7 +44,7 @@ app.use(require('./routes/notes'));
 app.use(require('./routes/users'));
 
 //Static Files
-app.use(express.static(path.join(__dirname,'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 

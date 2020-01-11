@@ -6,4 +6,11 @@ npm i nodemon -D
 
 node src/index.js
 
+//Empezar MongoDB
+mongod
+
+//Correr programa
 npm run dev
+
+//Base de datos
+use notes-db-app

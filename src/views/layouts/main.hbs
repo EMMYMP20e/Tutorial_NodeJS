@@ -17,6 +17,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
     <!--Custom CSS-->
     <link rel="stylesheet" href="/css/main.css">
     <title>Notes App</title>
@@ -25,6 +29,8 @@
 <body>
     <p>Navigation</p>
     <main class="container">
+        {{> messages }}
+        {{> errors}}
         {{{ body }}}
     </main>
 
